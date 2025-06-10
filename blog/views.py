@@ -3,10 +3,11 @@ from blog.forms import CommentForm  # Make sure this is imported
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 import logging
-
+from django.views.decorators.cache import cache_page
 
 logger = logging.getLogger(__name__)
 
+@cache_page(300)
 def index(request):
     posts = Post.objects.filter(published_at__lte=timezone.now())
     logger.debug("Got %d posts", len(posts))
