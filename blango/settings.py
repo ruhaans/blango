@@ -44,6 +44,7 @@ class Dev(Configuration):
     # Application definition
 
     INSTALLED_APPS = [
+        'blango_auth',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -101,7 +102,7 @@ class Dev(Configuration):
     }
 }
 
-
+    AUTH_USER_MODEL = "blango_auth.User"
 
     # Password validation
     # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
