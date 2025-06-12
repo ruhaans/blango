@@ -31,6 +31,7 @@ urlpatterns = [
     RegistrationView.as_view(form_class=BlangoRegistrationForm),
     name="django_registration_register",
     ),
+    path("accounts/", include("allauth.urls")),
     
 ]
 
